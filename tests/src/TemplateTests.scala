@@ -31,17 +31,17 @@ class TemplateTests extends TestHelpers with WskTestHelpers with Matchers {
   implicit val wskprops = WskProps()
   val wsk = new Wsk()
 
-  val credentials = TestUtils.getVCAPcredentials("template")
+  val credentials = TestUtils.getVCAPcredentials("template_service")
   val apiKey = credentials.get("apiKey");
 
   behavior of "Template Package"
 
   "helloworld action" should "return Hello, World!" in {
-    val actionName = "/whisk.system/packageTemplate/helloworld"
-    val params = HashMap("name" -> "Tareq".toJson);
+    val actionName = "/whisk.system/packageTemplate/helloWorld"
+    val params = HashMap("name" -> "Openwhisk".toJson);
 
     withActivation(wsk.activation, wsk.action.invoke(actionName, params)) {
-      _.fields("response").toString should include(s""""message": "Hello, Tareq!"""")
+      _.fields("response").toString should include(s""""message":"Hello, Openwhisk!"""")
     }
   }
 }

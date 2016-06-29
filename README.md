@@ -1,5 +1,6 @@
 #Openwhisk Package Template
 ==========================
+[![Build Status](https://travis-ci.org/openwhisk/openwhisk-package-template.svg?branch=master)](https://travis-ci.org/openwhisk/openwhisk-package-template)
 This package is a template for Openwhisk Packages, it can be used to build, test and integrate new packages.
 
 ```
