@@ -37,7 +37,7 @@ class TemplateTests extends TestHelpers with WskTestHelpers with Matchers {
   behavior of "Template Package"
 
   "helloworld action" should "return Hello, World!" in {
-    val actionName = "/whisk.system/packageTemplate/helloworld"
+    val actionName = "/whisk.system/packageTemplate/helloWorld"
     val params = HashMap("name" -> "Openwhisk".toJson);
 
     withActivation(wsk.activation, wsk.action.invoke(actionName, params)) {
