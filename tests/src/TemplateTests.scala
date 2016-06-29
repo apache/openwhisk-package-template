@@ -41,7 +41,7 @@ class TemplateTests extends TestHelpers with WskTestHelpers with Matchers {
     val params = HashMap("name" -> "Openwhisk".toJson);
 
     withActivation(wsk.activation, wsk.action.invoke(actionName, params)) {
-      _.fields("response").toString should include(s""""message": "Hello, Openwhisk!"""")
+      _.fields("response").toString should include(s""""message":"Hello, Openwhisk!"""")
     }
   }
 }
