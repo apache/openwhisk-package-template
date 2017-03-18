@@ -1,0 +1,50 @@
+def whiskhome = "$System.env.OPENWHISK_HOME"
+
+apply plugin: 'scala'
+apply plugin: 'eclipse'
+compileTestScala.options.encoding = 'UTF-8'
+
+repositories {
+    mavenCentral()
+    maven {
+        url 'https://oss.sonatype.org/content/repositories/snapshots/'
+    }
+}
+
+sourceSets {
+    test {
+        scala {
+            srcDirs = ['src/']
+        }
+    }
+}
+
+test {
+    systemProperty 'testthreads', System.getProperty('testthreads', '1')
+    testLogging {
+        events "passed", "skipped", "failed"
+        showStandardStreams = true
+        exceptionFormat = 'full'
+    }
+    outputs.upToDateWhen { false } // force tests to run everytime
+}
+
+// Add all images needed for local testing here
+/*test.dependsOn([
+    ':core:nodejsAction:distDocker',
+    ':core:nodejs6Action:distDocker',
+    ':core:pythonAction:distDocker',
+    ':core:javaAction:distDocker',
+    ':core:swiftAction:distDocker',
+    ':core:swift3Action:distDocker'
+])*/
+
+dependencies {
+    testCompile 'org.scala-lang:scala-library:2.11.7'
+    testCompile 'junit:junit:4.11'
+    testCompile 'org.scalatest:scalatest_2.11:2.2.4'
+    testCompile 'io.spray:spray-json_2.11:1.3.2'
+
+    testCompile project(':WhiskTest').sourceSets.test.output
+}
+
