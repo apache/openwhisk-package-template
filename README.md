@@ -1,6 +1,8 @@
-#Openwhisk Package Template
-==========================
+# Openwhisk Package Template
+
+[![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 [![Build Status](https://travis-ci.org/openwhisk/openwhisk-package-template.svg?branch=master)](https://travis-ci.org/openwhisk/openwhisk-package-template)
+
 This package is a template for Openwhisk Packages, it can be used to build, test and integrate new packages.
 
 ```
@@ -26,7 +28,7 @@ openwhisk-package-template/
 └── uninstall.sh
 ```
 
-##How to install and uninstall this package ?
+## How to install and uninstall this package?
 Install the package using `./install.sh  $EDGE_HOST $AUTH_KEY $WSK_CLI`
 where :
 - **$EDGE_HOST** is where openwhisk is deployed
@@ -35,7 +37,7 @@ where :
 
 This will create a new package called **packageTemplate** as well as a hello world action.
 
-To uninstall the package, please use `./uninstall.sh  $EDGE_HOST $AUTH_KEY $WSK_CLI` 
+To uninstall the package, please use `./uninstall.sh  $EDGE_HOST $AUTH_KEY $WSK_CLI`
 
 ##Testing
 You can test your package using the test cases you provided within tests/src, it is highly recommended to use Scala in writing test cases. To execute the test cases locally ( local deployment of Openwhisk), please copy your test files into `openwhisk/tests/src/packages` and then by using gradle within Openwhisk `gradle :tests:test` this will execute all test files of openwhisk, to execute a specific test class you can use `gradle :tests:test --tests "packages.CLASS_NAME`
@@ -55,7 +57,7 @@ List here Feed actions ...
 
 ###Actions
 ####Hello World
-This action is a simple hello world,  
+This action is a simple hello world,
 ######Parameters
 | **Parameter** | **Type** | **Required** | **Description**| **Options** | **Default** | **Example** |
 | ------------- | ---- | -------- | ------------ | ------- | ------- |------- |
@@ -78,8 +80,4 @@ Output:
 Please refer to [CONTRIBUTING.md](CONTRIBUTING.md)
 
 ## License
-Copyright 2015-2016 IBM Corporation
-
-Licensed under the [Apache License, Version 2.0 (the "License")](http://www.apache.org/licenses/LICENSE-2.0.html).
-
-Unless required by applicable law or agreed to in writing, software distributed under the license is distributed on an "as is" basis, without warranties or conditions of any kind, either express or implied. See the license for the specific language governing permissions and limitations under the license.
+See [LICENSE.txt](https://github.com/apache/incubator-openwhisk-package-template/blob/master/LICENSE.txt)
